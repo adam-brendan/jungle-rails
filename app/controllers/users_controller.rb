@@ -12,10 +12,18 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user.email = params[:user][:email]
-        @user.password = BCrypt::Password.create(params[:user][:password])
-        @user.save!
-        redirect_to "/"
+        if @user.save
+            session[:user_id] = @user.id
+            redirect_to "/"
+        else
+            puts "This is executing!"
+            render :new
+        end
+        # @user.email = params[:user][:email]
+        # @user.password = params[:user][:password]
+        # @user.password_confirmation = params[:user][:password_confirmation]
+        # @user.first_name = params[:user][:first_name]
+        # @user.last_name = params[:user][:last_name]
     end
 
     def login
@@ -29,6 +37,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
       end
 end
