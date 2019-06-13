@@ -31,6 +31,15 @@ cat3 = Category.find_or_create_by! name: 'Furniture'
 
 ## PRODUCTS
 
+puts "Generating users ..."
+
+# User.create [
+#   {email: "test1@test.com", password: "test"}, 
+#   {email: "test2@test.com", password: "test"},
+#   {email: "test3@test.com", password: "test"}
+# ]
+
+
 puts "Re-creating Products ..."
 
 Product.destroy_all

@@ -1,22 +1,34 @@
 class UsersController < ApplicationController
 
     def show
-        render :register
+        # this doesn't work
+        @user = User.find params[:id]
+    end
+
+
+    def new
+        @user = User.new
     end
 
     def create
-        @user = User.new(params[:user])
-        @user.password = params[:password]
+        @user = User.new(user_params)
+        @user.email = params[:user][:email]
+        @user.password = BCrypt::Password.create(params[:user][:password])
         @user.save!
-      end
+        redirect_to "/"
+    end
 
-      def login
+    def login
         @user = User.find_by_email(params[:email])
         if @user.password == params[:password]
-          give_token
+            give_token
         else
-          redirect_to home_url
+            redirect_to "/"
         end
-      end
+    end
 
+    private
+    def user_params
+        params.require(:user).permit(:email, :password)
+      end
 end
