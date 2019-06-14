@@ -39,7 +39,6 @@
         </tfoot>
       </table>
     </div>
-
     <div class="row">
       <div class="col-xs-12">
         <%= form_tag orders_path do %>
@@ -48,9 +47,9 @@
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-amount="<%= cart_subtotal_cents %>"
             data-name="Jungle"
-            data-description="Khurram Virani's Jungle Order"
+            data-description="<%= session[:first_name] %>'s Jungle Order"
             data-locale="auto"
-            data-email="kvirani@gmail.com"
+            data-email="<%= session[:email] %>"
             data-currency="cad">
           </script>
         <% end %>
