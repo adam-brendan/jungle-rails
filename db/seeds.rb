@@ -134,3 +134,56 @@ cat3.products.create!({
 
 
 puts "DONE!"
+
+## Reviews
+puts "Re-creating Users ..."
+User.new({
+  first_name: "Bob",
+  last_name: "Jones",
+  email: "test@test.com",
+  password: "test"
+}).save!(validate: false)
+User.new({
+  first_name: "Robert",
+  last_name: "Jones",
+  email: "test1@test.com",
+  password: "test"
+}).save!(validate: false)
+User.new({
+  first_name: "Bobby",
+  last_name: "Jones",
+  email: "test2@test.com",
+  password: "test"
+}).save!(validate: false)
+ 
+puts "DONE!"
+
+
+ puts "Re-creating Reviews ..."
+
+## Reviews
+Review.create!({
+  user_id: 1,
+  product_id: 1,
+  description: "Feels like sandpaper on my skin!",
+  rating: 2
+})
+Review.create!({
+  user_id: 2,
+  product_id: 2,
+  description: "Now I can blend in on the Savannah!",
+  rating: 4
+})
+Review.create!({
+  user_id: 3,
+  product_id: 3,
+  description: "It was a gift for my nephew, okay?",
+  rating: 1
+})
+
+Review.create!({
+  user_id: 3,
+  product_id: 2,
+  description: "Not as zebra-esque as I'd like.",
+  rating: 1
+})
