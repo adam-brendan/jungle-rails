@@ -15,13 +15,11 @@ A mini e-commerce application built with Rails 4.2.
 
 ## Screenshots
 
-!["home page"]
-!["login page"]
-!["register page"]
-!["login page"]
-!["my cart page"]
-!["checkout"]
-!["login page"]
-!["product details page"]
-!["order details page"]
-!["restricted to admin"]
+!["home page"](docs/homepage.png)
+!["login page"](docs/login_page.png)
+!["register page"](docs/register_page.png)
+!["my cart page"](docs/my_cart_page.png)
+!["checkout"](docs/checkout.png)
+!["product details page"](docs/product_details_page.png)
+!["order details page"](docs/order_details_page.png)
+!["restricted to admin"](docs/restricted_admin.png)
